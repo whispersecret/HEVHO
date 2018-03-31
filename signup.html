@@ -1,0 +1,184 @@
+<!Doctype html>
+<html>
+    <head>
+        <link rel="stylesheet" href="./lib/bootstrap-4.0.0-dist/css/bootstrap.css">
+        <link rel="stylesheet" href="./css/site.css">
+        <link rel="stylesheet" href="/css/login.css"
+        <script src="./lib/bootstrap-4.0.0-dist/js/bootstrap.js"></script>
+        <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+        <script src="https://connect.facebook.net/en_US/all.js"></script>
+        <title>HEVHO - Signup</title>
+
+    </head>
+
+    <body>
+        <img class="banner-image centered" style="opacity: 0.5"
+            src="./resources/forest2.jpg"
+            alt="forest">
+
+        <!--Navigation bar-->
+        <nav class = "navbar navbar-expand navbar-dark bg-dark">
+            <ul class = "navbar-nav">
+                <li class="navbar-brand">
+                    <img src="./resources/logo.PNG" style="border-radius: 50%" width="45" alt="brand">
+                </li>
+                <li class = "nav-item">
+                    <a href="index.html" class = "nav-link">Home</a>
+                </li>
+                <li class = "nav-item">
+                    <a href="organizations.html" class = "nav-link">Recruit Volunteers</a>
+                </li>
+                 <li class = "nav-item">
+                    <a href="howitworks.html" class = "nav-link">How It Works</a>
+                </li>
+                <li class = "nav-item">
+                    <a href="story.html" class = "nav-link">Our Story</a>
+                </li>
+                <li class = "nav-item">
+                    <a href="login.html" class = "nav-link">Login</a>
+                </li>
+                <li class = "nav-item">
+                    <a href="signup.html" class = "nav-link">Sign Up</a>
+                </li>
+            </ul>
+        </nav>
+
+        <form name="myForm">
+            <div class="centered">
+                <h1>Sign Up</h1>
+                <div class="form-group">
+                    Name
+                    <input name="Name" type="text" placeholder="" required="" autofocus="">
+                </div>
+
+                <div class="form-group" >
+                    Email
+                    <input name="Email" type="email" placeholder="" required="">
+                </div>
+                <div class="form-group" style="padding-bottom: 1em;" >
+                    Confirm Email
+                    <input name="reemail" type="email" placeholder="" required="">
+                </div>
+                 <div class="form-group" style="padding-bottom: 1em;" >
+                    Skills
+                    <input name="Skills" type="text" placeholder="" required="">
+                </div>
+                 <div class="form-group" style="padding-bottom: 1em;" >
+                    Times Available
+                    <input name="TimesAvailable" type="text" placeholder="" required="">
+                </div>
+                 <div class="form-group" style="padding-bottom: 1em;" >
+                    Preferred roles
+                    <input name="PreferredRoles" type="text" placeholder="" required="">
+                </div>
+                <button onclick="goToDashboard()" class="btn btn-dark">Sign Up</button>
+            </div>
+        </form>
+
+        <script>
+            function goToDashboard() {
+                window.open('profile.html');
+            }
+        </script>
+
+        <script>
+              window.fbAsyncInit = function() {
+                FB.init({
+                  appId            : '219465611967859',
+                  autoLogAppEvents : true,
+                  xfbml            : true,
+                  version          : 'v2.12'
+                });
+
+                  FB.getLoginStatus(function(response){
+                      if(response.status === "connected"){
+                          document.getElementByIdId('status').innterHTML = 'We are connnect.';
+                      }else if (response.status === 'not_authroized') {
+                          document.getElementById('status').innerHTML = "We are logged in."
+                      }else {
+                          document.getElementById('status.innerHTML = "You are not logged in')
+                      }
+                  });
+              };
+
+
+              (function(d, s, id){
+                 var js, fjs = d.getElementsByTagName(s)[0];
+                 if (d.getElementById(id)) {return;}
+                 js = d.createElement(s); js.id = id;
+                 js.src = "https://connect.facebook.net/en_US/sdk.js";
+                 fjs.parentNode.insertBefore(js, fjs);
+               }(document, 'script', 'facebook-jssdk'));
+
+                function login(){
+                    FB.login(function(response){
+                         if(response.status === "connected"){
+                          document.getElementByIdId('status').innterHTML = 'We are connnect.';
+                      }else if (response.status === 'not_authroized') {
+                          document.getElementById('status').innerHTML = "We are logged in."
+                      }else {
+                          document.getElementById('status.innerHTML = "You are not logged in')
+                      }
+                    });
+                }
+            </script>
+
+            <div id-"status"></div>
+            <button onClick"login()">Login</button>
+
+              <script>
+                $(function(){
+                  FB.init({ apiKey: '1602457659841752', status: true });
+                  FB.getLoginStatus(function(response) {
+                    if (response.status === 'connected') {
+                      console.log(response);
+                    } else if (response.status === 'not_authorized') {
+                      console.log('not connected to app');
+                    } else {
+                      console.log('not logged in to fb');
+                    }
+                  });
+                });
+              </script>
+
+            <fb:login-button
+              scope="public_profile,email"
+              onlogin="checkLoginState();">
+            </fb:login-button>
+
+            <script>
+            function validateForm() {
+                var Name = document.forms["myForm"]["Name"].value;
+                var Email = document.forms["myForm"]["Email"].value;
+                var reemail = document.forms["myForm"]["reemail"].value;
+                var Skills = document.forms["myForm"]["Skills"].value;
+                var TimesAvailable = document.forms["myForm"]["TimesAvailable"].value;
+                var PreferredRoles = document.forms["myForm"]["PreferredRoles"].value;
+
+
+                if (name == "" || role == "" || reason == "" || task == "" || skills == "" || number == "" || location == "" || time == "" || benefit == "" || support == "") {
+                    alert("Please fill everything out");
+                    return false;
+                }
+                else {
+    //                var xhttp = new XMLHttpRequest();
+    //                  xhttp.onreadystatechange = function() {
+    //                    if (this.readyState == 4 && this.status == 200) {
+    //                      document.getElementById("demo").innerHTML = this.responseText;
+    //                    }
+    //                  };
+    //                  xhttp.open("POST", "https://helpinghandsapi.azurewebsites.net/api/oppertunities", true);
+    //                  xhttp.send("?name=Anya&role=teacher&reason=living&task=cleaning&skills=cleaning&number=2&location=auckland&startTime=2pm&benefit=nippys&support=none");
+
+                    $.post("https://helpinghandsapi.azurewebsites.net/api/Volunteers?Name=" + Name + "&Email=" + Email + "&reemail=" + reemail + "&Skills=" + Skills + "&TimesAvailable=" + TimesAvailable + "&PreferredRoles=" + PreferredRoles, function(result){
+    //                    $("span").html(result);
+                        console.log("Done");
+                    });
+                    return false;
+                }
+            }
+            </script>
+        <iframe src="https://www.facebook.com/plugins/share_button.php?href=https%3A%2F%2Fmatchinghands1.azurewebsites.net%2Findex.html&layout=button_count&size=small&mobile_iframe=true&appId=219465611967859&width=69&height=20" width="69" height="20" style="border:none;overflow:hidden" scrolling="no" frameborder="0" allowTransparency="true"></iframe>
+
+    </body>
+</html>

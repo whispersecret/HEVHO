@@ -1,0 +1,137 @@
+<!Doctype html>
+<html>
+    <head>
+         <link rel="stylesheet" href="./css/site.css">
+        <link rel="stylesheet" href="./lib/bootstrap-4.0.0-dist/css/bootstrap.css">
+
+        <link rel="stylesheet" href="./css/login.css"
+        <script src="./lib/bootstrap-4.0.0-dist/js/bootstrap.js"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+        <title>HEVHO - Create an Event</title>
+    </head>
+
+    <body>
+        <!--Navigation bar-->
+        <nav class = "navbar navbar-expand navbar-dark bg-dark">
+            <ul class = "navbar-nav">
+                <li class="navbar-brand">
+                    <img src="./resources/logo.PNG" style="border-radius: 50%" width="45" alt="brand">
+                </li>
+                <li class = "nav-item">
+                    <a href="index.html" class = "nav-link">Home</a>
+                </li>
+                <li class = "nav-item">
+                    <a href="organizations.html" class = "nav-link">Recruit Volunteers</a>
+                </li>
+                 <li class = "nav-item">
+                    <a href="howitworks.html" class = "nav-link">How It Works</a>
+                </li>
+                <li class = "nav-item">
+                    <a href="story.html" class = "nav-link">Our Story</a>
+                </li>
+                <li class = "nav-item">
+                    <a href="login.html" class = "nav-link">Login</a>
+                </li>
+                <li class = "nav-item">
+                    <a href="signup.html" class = "nav-link">Sign Up</a>
+                </li>
+            </ul>
+        </nav>
+
+        <form name="myForm">
+            <img class="banner-image" style="opacity: 0.5"
+                src="./resources/forest2.jpg"
+                alt="forest">
+            <div class="event-form">
+                <h1>Create an Event</h1>
+                <div class="form-group">
+                    Organization name:
+                    <input name="name" type="text" placeholder="" required="" autofocus="" width="100" heigh = "500">
+                </div>
+                <div class="form-group" >
+                    Title of voluntary role:
+                    <input name="role" type="text" placeholder="" required="" autofocus="">
+                </div>
+                <div class="form-group" style="padding-bottom: 1em;" >
+                    Reason for needing volunteers:
+                    <input name="reason" type="text" placeholder="" required="">
+                </div>
+                <div class="form-group" style="padding-bottom: 1em;" >
+                    Volunteer tasks:
+                    <input name="task" type="text" placeholder="" required="">
+                </div>
+                  <div class="form-group" style="padding-bottom: 1em;" >
+                    Skills required:
+                    <input name="skills" type="text" placeholder="" required="">
+                </div>
+                  <div class="form-group" style="padding-bottom: 1em;" >
+                    No. of Volunteers needed:
+                    <input name="number" type="text" placeholder="" required="">
+                </div>
+                  <div class="form-group" style="padding-bottom: 1em;" >
+                    Location:
+                    <input name="location" type="text" placeholder="" required="">
+                </div>
+                <div class="form-group" style="padding-bottom: 1em;" >
+                    Time:
+                    <input name="time" type="text" placeholder="" required="">
+                </div>
+                  <div class="form-group" style="padding-bottom: 1em;" >
+                   How does this role benefit society and volunteers:
+                    <input name="benefit" type="text" placeholder="" required="">
+                </div>
+                  <div class="form-group" style="padding-bottom: 1em;" >
+                   How are the volunteers supervised and supported:
+                    <input name="support" type="text" placeholder="" required="">
+                </div>
+                <button class="btn btn-dark" onclick="validateForm();goToDashboard()">Recruit Volunteers</button>
+            </div>
+        </form>
+
+        <script>
+            function goToDashboard() {
+                window.open('sponsor.html');
+            }
+        </script>
+
+
+        <script>
+        function validateForm() {
+            var name = document.forms["myForm"]["name"].value;
+            var role = document.forms["myForm"]["role"].value;
+            var reason = document.forms["myForm"]["reason"].value;
+            var task = document.forms["myForm"]["task"].value;
+            var skills = document.forms["myForm"]["skills"].value;
+            var number = document.forms["myForm"]["number"].value;
+            var location = document.forms["myForm"]["location"].value;
+            var time = document.forms["myForm"]["time"].value;
+            var benefit = document.forms["myForm"]["benefit"].value;
+            var support = document.forms["myForm"]["support"].value;
+
+            if (name == "" || role == "" || reason == "" || task == "" || skills == "" || number == "" || location == "" || time == "" || benefit == "" || support == "") {
+                alert("Name must be filled out");
+                return false;
+            }
+            else {
+//                var xhttp = new XMLHttpRequest();
+//                  xhttp.onreadystatechange = function() {
+//                    if (this.readyState == 4 && this.status == 200) {
+////                      document.getElementById("demo").innerHTML = this.responseText;
+//                    }
+//                  };
+//                  xhttp.open("POST", "https://helpinghandsapi.azurewebsites.net/api/oppertunities", true);
+//                  xhttp.send("?name=Anya&role=teacher&reason=living&task=cleaning&skills=cleaning&number=2&location=auckland&startTime=2pm&benefit=nippys&support=none");
+
+                $.post("https://helpinghandsapi.azurewebsites.net/api/oppertunities?name=" + name + "&role=" + role + "&reason=" + reason + "&task=" + task + "&skills=" + skills + "&number=" + number + "&location=" + location + "&startTime=" + time + "&benefit=" + benefit + "&support=" + support, function(result){
+//                    $("span").html(result);
+                    console.log("Done");
+                });
+                return false;
+            }
+        }
+    </script>
+        <iframe src="https://www.facebook.com/plugins/share_button.php?href=https%3A%2F%2Fmatchinghands1.azurewebsites.net%2Findex.html&layout=button_count&size=small&mobile_iframe=true&appId=219465611967859&width=69&height=20" width="69" height="20" style="border:none;overflow:hidden" scrolling="no" frameborder="0" allowTransparency="true"></iframe>
+
+
+    </body>
+</html>

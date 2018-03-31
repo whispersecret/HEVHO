@@ -1,0 +1,184 @@
+@import url('https://fonts.googleapis.com/css?family=Raleway');
+
+body {
+    font-family: 'Raleway', sans-serif;
+}
+
+.banner-text {
+    text-align: center;
+    color: black;
+    background-color: cadetblue;
+    padding: 15px 15px 15px;
+    box-shadow: 15px 15px 80px black;
+}
+
+.profile {
+    background-image: url('../resources/forest2.jpg');
+}
+
+.profile-image {
+    width: 24em;
+}
+
+.profile-card {
+    width: 80%;
+    background-color: white;
+}
+
+.profile-text {
+    padding-top: 3em;
+    padding-left: 5em;
+    padding-right: 5em;
+}
+
+/* Timeline (vertical line) */
+.timeline {
+    border-left: 6px solid white;
+    height: 800px;
+    margin: auto;
+    margin-left: 50%;
+}
+
+/* Timeline content */
+.timeline-card {
+    background-color: darkcyan;
+    padding-top: 2em;
+    padding-left: 2em;
+    padding-right: 2em;
+}
+
+/* Timeline content */
+.timeline-content {
+    padding: 20px 30px;
+    background-color: white;
+    position: relative;
+    border-radius: 6px;
+    margin-top: 6em;
+}
+
+/* Add arrows to the right container (pointing left) */
+.right-arrow::before {
+    content: " ";
+    height: 0;
+    position: absolute;
+    top: 22px;
+    width: 0;
+    z-index: 1;
+    left: -11px;
+    border: medium solid white;
+    border-width: 10px 10px 10px 0;
+    border-color: transparent white transparent transparent;
+}
+
+/* Add arrows to the left container (pointing right) */
+.left-arrow::before {
+    content: " ";
+    height: 0;
+    position: absolute;
+    top: 22px;
+    width: 0;
+    z-index: 1;
+    right: -11px;
+    border: medium solid white;
+    border-width: 10px 0 10px 10px;
+    border-color: transparent transparent transparent white;
+}
+
+.sponsor {
+    background-color: darkcyan;
+    padding-bottom: 7em;
+}
+
+.sponsor-image {
+    width: 100%;
+}
+
+.sponsor-card {
+    width: 80%;
+    background-color: white;
+}
+
+.sponsor-title {
+    padding: 15px 15px 15px;
+    color: white;
+    font-size: 31px;
+    background-color: darkcyan;
+    box-shadow: 15px 15px 80px black;
+    position: absolute;
+    bottom: 133px;
+}
+
+.sponsor-text {
+    padding: 33px 33px 33px;
+}
+
+.sponsor-description {
+    padding: 15px 15px 15px 15px;
+    color: #40695b;
+    font-style: italic;
+    font-size: 21px;
+    text-align: left;
+    background-color: white;
+    box-shadow: 15px 15px 80px black;
+    position: absolute;
+    bottom: 1em;
+    right: 16px;
+}
+
+.event-form {
+    position: absolute;
+    top: 90%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.centered {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.team {
+    position: relative;
+    text-align: center;
+    color: white;
+    margin-top: 36vw;
+
+}
+
+.team-title {
+    position: inherit;
+    font-size: 3vw;
+    color: black
+}
+
+.team-text {
+  font-size: 2vw;
+  color: black;
+}
+
+.team-image {
+  opacity: 1;
+  width: 50%;
+  height: auto;
+  transition: .5s ease;
+  backface-visibility: hidden;
+  border-radius: 50%;
+}
+
+
+.socialmedia-logo {
+    width: 5vw;
+}
+
+.story-text {
+    background-color: cadetblue;
+    padding: 15px 15px 15px;
+    font-size: 2vw;
+    position: absolute;
+    color: black;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}

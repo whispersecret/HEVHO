@@ -1,0 +1,67 @@
+<!Doctype html>
+<html>
+    <head>
+        <link rel="stylesheet" href="./lib/bootstrap-4.0.0-dist/css/bootstrap.css">
+        <link rel="stylesheet" href="./css/site.css">
+        <link rel="stylesheet" href="./css/login.css"
+        <script src="./lib/bootstrap-4.0.0-dist/js/bootstrap.js"></script>
+        <title>HEVHO - Login</title>
+
+    </head>
+
+    <body>
+
+        <!--Navigation bar-->
+        <nav class = "navbar navbar-expand navbar-dark bg-dark">
+            <ul class = "navbar-nav">
+                <li class="navbar-brand">
+                    <img src="./resources/logo.PNG" style="border-radius: 50%" width="45" alt="brand">
+                </li>
+                <li class = "nav-item">
+                    <a href="index.html" class = "nav-link">Home</a>
+                </li>
+                <li class = "nav-item">
+                    <a href="organizations.html" class = "nav-link">Recruit Volunteers</a>
+                </li>
+                 <li class = "nav-item">
+                    <a href="howitworks.html" class = "nav-link">How It Works</a>
+                </li>
+                <li class = "nav-item">
+                    <a href="story.html" class = "nav-link">Our Story</a>
+                </li>
+                <li class = "nav-item">
+                    <a href="login.html" class = "nav-link">Login</a>
+                </li>
+                <li class = "nav-item">
+                    <a href="signup.html" class = "nav-link">Sign Up</a>
+                </li>
+            </ul>
+        </nav>
+
+        <!--login form-->
+        <form>
+                <img class="banner-image" style="opacity: 0.5"
+                    src="./resources/forest2.jpg"
+                    alt="forest">
+
+                <div class="centered text-center">
+                    <img style="border-radius: 50%;" src="./resources/logo.PNG" alt="icon" width="72" height="72">
+                    <h1>Login</h1>
+                    <div class="form-group">
+                        <input type="email" placeholder="Email" required="" autofocus="">
+                    </div>
+                    <div class="form-group" style="padding-bottom: 1em;" >
+                        <input type="password" placeholder="Password" required="">
+                    </div>
+                    <button onclick="goToDashboard()" class="btn btn-dark">Sign Up</button>
+                </div>
+        </form>
+
+        <script>
+            function goToDashboard() {
+                window.open('profile.html');
+            }
+        </script>
+
+    </body>
+</html>
